@@ -1,0 +1,23 @@
+<p>
+ <button pButton type="button" label="点击"></button>
+</p>
+<label>照片：</label>
+<div>
+    <!--上传组件 -->
+     <p-fileUpload 
+         name="uploadPhoto[]" 
+         url="http://localhost:3333/api/upload"
+         (onUpload)="onPhotoUpload($event)" accept="image/*" maxFileSize="1000000">
+         <ng-template pTemplate type="content">
+             <ul *ngIf="photoFiles.length">
+                 <li *ngFor="let file of photoFiles">
+                     {{file.name}} - {{file.size}} bytes
+                 </li>
+             </ul>
+         </ng-template>
+     </p-fileUpload>
+</div>
+<!--如果图片上传成功，显示图片 -->
+<div *ngIf="demo.photo">
+    <img src="{{photoUrl}}">
+</div>

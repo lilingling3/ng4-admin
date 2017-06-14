@@ -1,6 +1,8 @@
 import { LoginComponent } from './login/login.component';
 import { AppErrorComponent } from './error/app.error.component';
 import { ZtreeDemoComponent } from './z-tree/z-tree.component';
+import { PrimengComponent } from './primeng/primeng.component'
+
 export const appRoutes = [
 	{
 		path: '',
@@ -19,6 +21,10 @@ export const appRoutes = [
 	{
 		path: 'tree',
 		component: ZtreeDemoComponent
+	},
+	{
+		path: 'primeng',
+		component: PrimengComponent
 	},
 	{
 		path: 'workentry',

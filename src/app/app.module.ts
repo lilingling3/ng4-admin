@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import { AlertModule,TabsModule  } from 'ng2-bootstrap';
+// import { AlertModule,TabsModule  } from 'ng2-bootstrap';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {HashLocationStrategy,LocationStrategy} from '@angular/common';
 
@@ -22,7 +22,8 @@ import { commonsInstances} from './models/Acommons';
 import { AppErrorComponent } from './error/app.error.component';
 import { ZtreeDemoComponent } from './z-tree/z-tree.component';
 
-//import {ButtonModule} from 'primeng/primeng';
+import {ButtonModule,FileUploadModule} from 'primeng/primeng';
+import { PrimengComponent } from './primeng/primeng.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +31,12 @@ import { ZtreeDemoComponent } from './z-tree/z-tree.component';
     LoadingButton,
     AppErrorComponent,
     ZtreeDemoComponent,
+    PrimengComponent
 ],
   imports: [
     ChartsModule,
-    AlertModule.forRoot(),
-    TabsModule.forRoot(),
+    //AlertModule.forRoot(),
+    //TabsModule.forRoot(),
     SharedModule,
     BrowserModule,
     RouterModule,
@@ -44,7 +46,8 @@ import { ZtreeDemoComponent } from './z-tree/z-tree.component';
     ToastModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    //ButtonModule
+    ButtonModule,
+    FileUploadModule
   ],
   providers: [
     AppService,

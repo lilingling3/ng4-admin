@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TranslateModule } from 'ng2-translate';
 import { ModalModule } from 'ng2-bootstrap';
 import { PaginationModule } from 'ng2-bootstrap';
-// import {CheckboxModule} from 'primeng/primeng';
+// import {ButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { PaginationModule } from 'ng2-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    //CheckboxModule,
+    // ButtonModule,
     PaginationModule.forRoot(),
     ModalModule.forRoot()
   ],
