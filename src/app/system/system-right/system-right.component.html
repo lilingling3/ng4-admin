@@ -1,0 +1,28 @@
+<script src="system-right.component.ts"></script>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th>dutyId</th>
+        <th>dutyName</th>
+        <th>dutyMenu</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let right of rights">
+        <td>{{right.dutyId}}</td>
+        <td>{{right.dutyName}}</td>
+        <td >
+          <a (click)="showItem(right.dutyId)">操作</a>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+
+

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-12">
+
+    <button class="btn btn-default" (click)="goToEdit()">添加字典管理</button>
+
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>sn</th>
+        <th>name</th>
+        <th>value</th>
+        <th>enabled</th>
+        <th>parentId</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let workBook of workBooks">
+        <td>{{workBook.id}}</td>
+        <td>{{workBook.sn}}</td>
+        <td>{{workBook.name}}</td>
+        <td>{{workBook.value}}</td>
+        <td>{{workBook.enabled}}</td>
+        <td>{{workBook.parentId}}</td>
+        <td>
+          <a href="javascript:void(0);" (click)="update(workBook.id)">修改</a>
+          <a href="javascript:void(0);" (click)="delItem(workBook.id)">删除</a>
+        </td>
+      </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+<!--<div class="station-pagination">-->
+  <!--<pagination [totalItems]="totalItems" [maxSize]="maxSize" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage"-->
+              <!--firstText="{{'首页' }}" lastText="{{'尾页'}}"-->
+              <!--previousText="{{'上一页'}}" nextText="{{'下一页'}}"-->
+              <!--[boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"-->
+              <!--(pageChanged)="pageChanged($event)" class="pagination-sm"></pagination>-->
+<!--</div>-->
