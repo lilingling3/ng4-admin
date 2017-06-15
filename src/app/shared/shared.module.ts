@@ -26,4 +26,4 @@ import { PaginationModule } from 'ng2-bootstrap';
   ]
 })
 
-export class SharedModule { }
+export class SharedCommonModule { }

@@ -14,7 +14,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { appRoutes } from './app.routes';
-import { SharedModule } from './shared/shared.module';
+import { SharedCommonModule } from './shared/shared.module';
 import { LoadingButton } from './common/loading/loading-button';
 import { AppService } from './server/app.service';
 import { TopMenuService } from './server/top-menu.service';
@@ -22,8 +22,15 @@ import { commonsInstances} from './models/Acommons';
 import { AppErrorComponent } from './error/app.error.component';
 import { ZtreeDemoComponent } from './z-tree/z-tree.component';
 
-import {ButtonModule,FileUploadModule} from 'primeng/primeng';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ButtonModule,FileUploadModule,CalendarModule,PaginatorModule,TreeTableModule,TreeNode,SharedModule,Header,
+  Footer,ContextMenuModule
+} from 'primeng/primeng';
 import { PrimengComponent } from './primeng/primeng.component';
+
+import {PrimengService } from './primeng/primeng.service';
+import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,13 +53,23 @@ import { PrimengComponent } from './primeng/primeng.component';
     ToastModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    BrowserAnimationsModule,
     ButtonModule,
-    FileUploadModule
+    FileUploadModule,
+    CalendarModule,
+    PaginatorModule,
+    TreeTableModule,
+    // TreeNode,
+    SharedModule,
+    ContextMenuModule,
+    ConfirmDialogModule
   ],
   providers: [
     AppService,
     TopMenuService,
     commonsInstances,
+    PrimengService,
+    ConfirmationService,
     {provide: LocationStrategy,useClass: HashLocationStrategy}
 ],
   bootstrap: [AppComponent]
