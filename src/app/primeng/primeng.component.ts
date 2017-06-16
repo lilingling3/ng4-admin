@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrimengService } from './primeng.service';
 import {TreeTableModule,TreeNode,SharedModule} from 'primeng/primeng';
 import {ConfirmationService} from 'primeng/primeng';
+import {MenuItem,Message} from 'primeng/primeng';
 class Demo{
     photo:String;
 }
@@ -30,13 +31,186 @@ export class PrimengComponent implements OnInit {
 
   cols;
   items;
+
+  private itemMenus: MenuItem[];
+  private tabMenuItems: MenuItem[];
+
+   data: any;
+  options: any;
+   events: any[];
+   private contextMenuItems: MenuItem[];
+
+ msgs: Message[] = [];
+
+
+
   constructor(
      private primengService:PrimengService,
      private confirmationService: ConfirmationService
-  ) { }
+  ) {
+      this.data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: 'Second Dataset',
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        }
+        
+        this.options = {
+            title: {
+                display: true,
+                text: 'My Title',
+                fontSize: 16
+            },
+            legend: {
+                position: 'bottom'
+            }
+        };
+   }
 
+
+
+    showInfo() {
+        this.msgs = [];
+        this.msgs.push({severity:'info', summary:'Info Message', detail:'PrimeNG rocks'});
+    }
+
+    showWarn() {
+        this.msgs = [];
+        this.msgs.push({severity:'warn', summary:'Warn Message', detail:'There are unsaved changes'});
+    }
+
+    showError() {
+        this.msgs = [];
+        this.msgs.push({severity:'error', summary:'Error Message', detail:'Validation failed'});
+    }
+    showSuccess() {
+        this.msgs = [];
+        this.msgs.push({severity:'success', summary:'Success Message', detail:'Validation failed'});
+    }
+
+    showMultiple() {
+        this.msgs = [];
+        this.msgs.push({severity:'info', summary:'Message 1', detail:'PrimeNG rocks'});
+        this.msgs.push({severity:'info', summary:'Message 2', detail:'PrimeUI rocks'});
+        this.msgs.push({severity:'info', summary:'Message 3', detail:'PrimeFaces rocks'});
+    }
+
+    clear() {
+        this.msgs = [];
+    }
 
   ngOnInit() {
+
+    // this.tabMenuItems = [
+    //         {
+    //             label: 'File',
+    //             icon: 'fa-file-o',
+    //             items: [{
+    //                     label: 'New', 
+    //                     icon: 'fa-plus',
+    //                     items: [
+    //                         {label: 'Project'},
+    //                         {label: 'Other'},
+    //                     ]
+    //                 },
+    //                 {label: 'Open'},
+    //                 {label: 'Quit'}
+    //             ]
+    //         },
+    //         {
+    //             label: 'Edit',
+    //             icon: 'fa-edit',
+    //             items: [
+    //                 {label: 'Undo', icon: 'fa-mail-forward'},
+    //                 {label: 'Redo', icon: 'fa-mail-reply'}
+    //             ]
+    //         },
+    //         {
+    //             label: 'Help',
+    //             icon: 'fa-question',
+    //             items: [
+    //                 {
+    //                     label: 'Contents'
+    //                 },
+    //                 {
+    //                     label: 'Search', 
+    //                     icon: 'fa-search', 
+    //                     items: [
+    //                         {
+    //                             label: 'Text', 
+    //                             items: [
+    //                                 {
+    //                                     label: 'Workspace'
+    //                                 }
+    //                             ]
+    //                         },
+    //                         {
+    //                             label: 'File'
+    //                         }
+    //                 ]}
+    //             ]
+    //         },
+    //         {
+    //             label: 'Actions',
+    //             icon: 'fa-gear',
+    //             items: [
+    //                 {
+    //                     label: 'Edit',
+    //                     icon: 'fa-refresh',
+    //                     items: [
+    //                         {label: 'Save', icon: 'fa-save'},
+    //                         {label: 'Update', icon: 'fa-save'},
+    //                     ]
+    //                 },
+    //                 {
+    //                     label: 'Other',
+    //                     icon: 'fa-phone',
+    //                     items: [
+    //                         {label: 'Delete', icon: 'fa-minus'}
+    //                     ]
+    //                 }
+    //             ]
+    //         }
+    //     ];
+
+     this.tabMenuItems = [
+            {label: 'Stats', icon: 'fa-bar-chart'},
+            {label: 'Calendar', icon: 'fa-calendar'},
+            {label: 'Documentation', icon: 'fa-book'},
+            {label: 'Support', icon: 'fa-support'},
+            {label: 'Social', icon: 'fa-twitter'}
+        ];
+    this.contextMenuItems = [
+            {
+                label: 'File',
+                items: [{
+                        label: 'New', 
+                        icon: 'fa-plus',
+                        items: [
+                            {label: 'Project'},
+                            {label: 'Other'},
+                        ]
+                    },
+                    {label: 'Open'},
+                    {label: 'Quit'}
+                ]
+            },
+            {
+                label: 'Edit',
+                icon: 'fa-edit',
+                items: [
+                    {label: 'Undo', icon: 'fa-mail-forward'},
+                    {label: 'Redo', icon: 'fa-mail-reply'}
+                ]
+            }
+        ];
 
     this.cn = {
             firstDayOfWeek: 1,
@@ -76,16 +250,24 @@ export class PrimengComponent implements OnInit {
         //         {field: 'menuId', header: 'menuId'},
         //         {field: 'action', header: 'action'},
         //     ];
+        this.itemMenus = [{
+            label: 'File',
+            items: [
+                {label: 'New', icon: 'fa-plus', url: 'http://www.primefaces.org/primeng'},
+                {label: 'Open', icon: 'fa-download', routerLink: ['/pro']}
+            ]
+        }]
         this.cols = [
                 {field: 'name', header: 'Name'},
                 {field: 'size', header: 'Size'},
                 {field: 'type', header: 'Type'},
                 {field: '操作', header: '操作'}
-            ];
+            ],
             this.items = [
             {label: '删除', icon: 'fa-search', command: (event) => this.viewNode(this.selectedFile)},
             {label: '编辑', icon: 'fa-close', command: (event) => this.deleteNode(this.selectedFile)}
-        ];
+        ]
+
         this.primengService.getDutyMenu()
         .then(files => {
              this.files = files
@@ -108,6 +290,9 @@ export class PrimengComponent implements OnInit {
 
 
         })
+
+        this.primengService.getSchedule()
+        .then(events => this.events=events)
 
 
   }

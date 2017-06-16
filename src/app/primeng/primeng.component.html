@@ -1,6 +1,6 @@
 <!-- 按钮-->
 <div>
-<button pButton type="button" label="Click"></button>
+<button pButton type="button" label="点击"></button>
 </div>
 <!-- 上传图片 -->
 <label>照片：</label>
@@ -9,7 +9,8 @@
      <p-fileUpload
          name="uploadPhoto[]"
          url="http://localhost:3333/api/upload"
-         (onUpload)="onPhotoUpload($event)" accept="image/*" maxFileSize="1000000">
+         (onUpload)="onPhotoUpload($event)" accept="image/*" maxFileSize="1000000"
+          chooseLabel='选择' uploadLabel='下载' cancelLabel='取消'>
          <ng-template pTemplate type="content">
              <ul *ngIf="photoFiles.length">
                  <li *ngFor="let file of photoFiles">
@@ -19,6 +20,9 @@
          </ng-template>
      </p-fileUpload>
 </div>
+<!--
+    url 属性作为上传目标，并在后端标识文件名称
+-->
 <!--如果图片上传成功，显示图片 -->
 <div *ngIf="demo.photo">
     <img src="{{photoUrl}}">
@@ -68,3 +72,105 @@
 <!--<p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
 
 <button type="text" (click)="confirm1()" pButton icon="fa-check" label="Confirm"></button>-->
+
+<p-menu [model]="itemMenus"></p-menu>
+
+<!--<p-schedule [events]="events"></p-schedule>-->
+<!--
+    全局改变 右键编辑栏 [global]="true"
+-->
+
+<p-contextMenu  [model]="contextMenuItems" [target]="img"></p-contextMenu>
+<!-- 
+    给图片添加 右键功能
+-->
+<img #img src="../../favicon.ico" alt="Logo">
+
+<p-tabMenu [model]="tabMenuItems"></p-tabMenu>
+
+<p-chart type="polarArea" [data]="data" [options]="options"></p-chart>
+<!--
+    type :line bar doughnut pie polarArea radar
+-->
+<button type="button" pButton (click)="update($event)"></button>
+<!--<p-messages [(value)]="msgs"></p-messages>-->
+
+<div>
+    <button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button>
+    <button type="button" pButton (click)="showInfo()" label="Info" class="ui-button-info"></button>
+    <button type="button" pButton (click)="showWarn()" label="Warn" class="ui-button-warning"></button>
+    <button type="button" pButton (click)="showError()" label="Error" class="ui-button-danger"></button>
+    <button type="button" pButton (click)="showMultiple()" label="Multiple"></button>
+    <button type="button" pButton (click)="clear()" icon="fa-close" style="float:right" label="Clear"></button>
+</div>
+
+<!--
+     sticky="sticky" 一直 在 否则会消失
+-->
+<p-growl [(value)]="msgs"  sticky="sticky"></p-growl>
+
+<p id="test">
+    kkk
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
