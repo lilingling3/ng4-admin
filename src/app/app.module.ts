@@ -28,10 +28,13 @@ import {ButtonModule,FileUploadModule,CalendarModule,PaginatorModule,TreeTableMo
   TabMenuModule,ChartModule,MessagesModule,GrowlModule
 
 } from 'primeng/primeng';
-
 import { PrimengComponent } from './primeng/primeng.component';
 
 import {PrimengService } from './primeng/primeng.service';
+// import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+import { TestHttpComponent } from './test-http/test-http.component';
+import { TestHttpService } from './test-http/test-http.service';
+import { HttpService } from './server/common.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,8 @@ import {PrimengService } from './primeng/primeng.service';
     LoadingButton,
     AppErrorComponent,
     ZtreeDemoComponent,
-    PrimengComponent
+    PrimengComponent,
+    TestHttpComponent
 ],
   imports: [
     ChartsModule,
@@ -77,6 +81,8 @@ import {PrimengService } from './primeng/primeng.service';
     commonsInstances,
     PrimengService,
     ConfirmationService,
+    TestHttpService,
+    HttpService,
     {provide: LocationStrategy,useClass: HashLocationStrategy}
 ],
   bootstrap: [AppComponent]
