@@ -24,14 +24,16 @@ import { ZtreeDemoComponent } from './z-tree/z-tree.component';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule,FileUploadModule,CalendarModule,PaginatorModule,TreeTableModule,TreeNode,SharedModule,Header,
-  Footer,ContextMenuModule,MenuModule,MenuItem,ConfirmDialogModule,ConfirmationService,ScheduleModule,
-  TabMenuModule,ChartModule,MessagesModule,GrowlModule
-
+  Footer,ContextMenuModule
 } from 'primeng/primeng';
 import { PrimengComponent } from './primeng/primeng.component';
 
 import {PrimengService } from './primeng/primeng.service';
+<<<<<<< HEAD
 // import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+=======
+import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+>>>>>>> 093a3dad703cd15a39d109d0ba4b81cf412acd05
 import { TestHttpComponent } from './test-http/test-http.component';
 import { TestHttpService } from './test-http/test-http.service';
 import { HttpService } from './server/common.service';
@@ -67,13 +69,7 @@ import { HttpService } from './server/common.service';
     // TreeNode,
     SharedModule,
     ContextMenuModule,
-    ConfirmDialogModule,
-    MenuModule,
-    ScheduleModule,
-    TabMenuModule,
-    ChartModule,
-    MessagesModule,
-    GrowlModule
+    ConfirmDialogModule
   ],
   providers: [
     AppService,
