@@ -24,14 +24,15 @@ import { ZtreeDemoComponent } from './z-tree/z-tree.component';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule,FileUploadModule,CalendarModule,PaginatorModule,TreeTableModule,TreeNode,SharedModule,Header,
-  Footer,ContextMenuModule,MenuModule,MenuItem,ConfirmDialogModule,ConfirmationService,ScheduleModule,
-  TabMenuModule,ChartModule,MessagesModule,GrowlModule
-
+  Footer,ContextMenuModule
 } from 'primeng/primeng';
-
 import { PrimengComponent } from './primeng/primeng.component';
 
 import {PrimengService } from './primeng/primeng.service';
+import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+import { TestHttpComponent } from './test-http/test-http.component';
+import { TestHttpService } from './test-http/test-http.service';
+import { HttpService } from './server/common.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {PrimengService } from './primeng/primeng.service';
     LoadingButton,
     AppErrorComponent,
     ZtreeDemoComponent,
-    PrimengComponent
+    PrimengComponent,
+    TestHttpComponent
 ],
   imports: [
     ChartsModule,
@@ -63,13 +65,7 @@ import {PrimengService } from './primeng/primeng.service';
     // TreeNode,
     SharedModule,
     ContextMenuModule,
-    ConfirmDialogModule,
-    MenuModule,
-    ScheduleModule,
-    TabMenuModule,
-    ChartModule,
-    MessagesModule,
-    GrowlModule
+    ConfirmDialogModule
   ],
   providers: [
     AppService,
@@ -77,6 +73,8 @@ import {PrimengService } from './primeng/primeng.service';
     commonsInstances,
     PrimengService,
     ConfirmationService,
+    TestHttpService,
+    HttpService,
     {provide: LocationStrategy,useClass: HashLocationStrategy}
 ],
   bootstrap: [AppComponent]
